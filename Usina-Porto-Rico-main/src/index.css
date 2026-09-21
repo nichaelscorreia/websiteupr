@@ -1,0 +1,287 @@
+@import "animate.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Força o tema claro como padrão */
+  :root {
+    color-scheme: light;
+  }
+
+  /* Remove a preferência de cor do sistema */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: light;
+    }
+  }
+
+  /* Classe para ativar o modo escuro manualmente */
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .prose iframe,
+  .prose-lg iframe,
+  .prose-xl iframe {
+    @apply w-full aspect-video rounded-lg shadow-md;
+  }
+}
+
+@layer utilities {
+  .text-stroke-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-stroke-white {
+    text-shadow: 0 1px 2px rgb(255, 255, 255), 0 1px 2px rgb(255, 255, 255);
+  }
+
+  /* Line clamp para truncar texto */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+
+/* Animação shimmer para skeleton loading */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Pulse suave para skeleton */
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==================== SCROLLBAR CUSTOMIZADA ==================== */
+
+/* Scrollbar fina */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Scrollbar escondida (mas funcional) */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==================== BLUR EFFECTS ==================== */
+
+/* Blur para loading de imagens */
+.blur-0 {
+  filter: blur(0);
+}
+
+.blur-sm {
+  filter: blur(4px);
+}
+
+.blur-md {
+  filter: blur(8px);
+}
+
+.blur-lg {
+  filter: blur(16px);
+}
+
+.blur-xl {
+  filter: blur(24px);
+}
+
+.blur-2xl {
+  filter: blur(40px);
+}
+
+.blur-3xl {
+  filter: blur(64px);
+}
+
+/* ==================== TRANSIÇÕES SUAVES ==================== */
+
+/* Transição de blur suave */
+.transition-blur {
+  transition: filter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transição de opacidade suave */
+.transition-opacity-slow {
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== UTILIDADES EXTRAS ==================== */
+
+/* Aspect ratios personalizados */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-wide {
+  aspect-ratio: 16 / 9;
+}
+
+/* Prevent layout shift durante loading */
+.prevent-shift {
+  min-height: 300px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove scroll behavior em animações */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==================== SKELETON ESPECÍFICO ==================== */
+
+/* Background gradient animado para skeleton */
+.skeleton-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(243, 244, 246, 1) 0%,
+    rgba(229, 231, 235, 1) 50%,
+    rgba(243, 244, 246, 1) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.dark .skeleton-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(55, 65, 81, 1) 0%,
+    rgba(75, 85, 99, 1) 50%,
+    rgba(55, 65, 81, 1) 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==================== PERFORMANCE ==================== */
+
+/* Hardware acceleration para animações */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Otimização de imagens */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ==================== ACESSIBILIDADE ==================== */
+
+/* Focus visible melhorado */
+*:focus-visible {
+  outline: 2px solid #ef233c;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove outline em elementos não focáveis por teclado */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==================== DARK MODE - SEM PISCAR ==================== */
+
+/* Transição suave APENAS para backgrounds e borders - NÃO para texto */
+body,
+header,
+nav,
+main,
+footer,
+section {
+  transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove transições de texto completamente (evita piscar) */
+* {
+  transition-property: none;
+}
+
+/* Permite transição apenas em elementos específicos via Tailwind */
+.transition-colors {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
