@@ -25,7 +25,7 @@ import imgIrri5 from "../assets/galeria/irri5.jpg";
 import imgIrri6 from "../assets/galeria/irri6.jpg";
 import imgInd1 from "../assets/galeria/ind1.webp";
 import imgInd2 from "../assets/galeria/ind2.jpg";
-import imgInd3 from "../assets/galeria/ind3.jpg";
+import imgInd3 from "../assets/galeria/ind3.JPG";
 import imgInd4 from "../assets/galeria/ind4.png";
 import imgInd5 from "../assets/galeria/ind5.png";
 import imgInd6 from "../assets/galeria/ind6.jpg";
