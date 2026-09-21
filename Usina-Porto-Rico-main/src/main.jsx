@@ -16,7 +16,7 @@ import AUsinaPage from "./pages/AUsinaPage";
 import GaleriaPage from "./pages/GaleriaPage";
 import HistoriaPage from "./pages/HistoriaPage";
 import TransparenciaPage from "./pages/TransparenciaPage";
-import SustentabilidadePage from "./pages/sustentabilidadePage";
+import SustentabilidadePage from "./pages/SustentabilidadePage";
 import PoliticasPage from "./pages/PoliticasPage";
 import ContatoPage from "./pages/ContatoPage";
 import ComunidadePage from "./pages/ComunidadePage";
