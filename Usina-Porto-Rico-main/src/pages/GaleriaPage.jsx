@@ -11,12 +11,12 @@ import HeroSection from "../components/HeroSection";
 // Importar todas as imagens
 import imgHero from "../assets/gearUsina.jpg";
 import imgCampo1 from "../assets/galeria/campo1.jpg";
-import imgCampo2 from "../assets/galeria/campo2.jpg";
-import imgCampo3 from "../assets/galeria/campo3.jpg";
-import imgCampo4 from "../assets/galeria/campo4.jpg";
-import imgCampo5 from "../assets/galeria/campo5.jpg";
-import imgCampo6 from "../assets/galeria/campo6.jpg";
-import imgCampo7 from "../assets/galeria/campo7.jpg";
+import imgCampo2 from "../assets/galeria/campo2.JPG";
+import imgCampo3 from "../assets/galeria/campo3.JPG";
+import imgCampo4 from "../assets/galeria/campo4.JPG";
+import imgCampo5 from "../assets/galeria/campo5.JPG";
+import imgCampo6 from "../assets/galeria/campo6.JPG";
+import imgCampo7 from "../assets/galeria/campo7.JPG";
 import imgIrri1 from "../assets/galeria/irri1.jpg";
 import imgIrri2 from "../assets/galeria/irri2.jpg";
 import imgIrri3 from "../assets/galeria/irri3.jpg";
