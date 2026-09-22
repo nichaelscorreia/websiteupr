@@ -1,11 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { HiDocumentText, HiUserGroup, HiArrowDown } from "react-icons/hi2";
-import imgSalarial from "../assets/salarial.jpg";
-import imgSalarial2 from "../assets/salarial2.jpg";
+import {
+  HiArrowDown,
+  HiClock,
+  HiDocumentText,
+  HiUserGroup,
+  HiXMark,
+} from "react-icons/hi2";
+import imgSalarial from "../assets/1° RelatorioIgualdadeSalarial UPR Lote_2026.jpg";
+import imgSalarial2 from "../assets/1°RelatorioIgualdadeSalarial DPA Lote_2026.jpg";
+import uprHistorico2024 from "../assets/1°RelatorioIgualdadeSalarial UPR Lote_2024.jpg";
+import uprHistorico2025 from "../assets/1°RelatorioIgualdadeSalarial UPR Lote_2025.jpg";
+import uprHistorico2024Segundo from "../assets/2°RelatorioIgualdadeSalarial UPR Lote_2024.jpg";
+import uprHistorico2025Segundo from "../assets/2°RelatorioIgualdadeSalarial UPR Lote_2025.jpg";
+import dpaHistorico2024 from "../assets/1°RelatorioIgualdadeSalarial DPA Lote_2024.jpg";
+import dpaHistorico2025 from "../assets/1°RelatorioIgualdadeSalarial DPALote_2025.jpg";
+import dpaHistorico2024Segundo from "../assets/2°RelatorioIgualdadeSalarial DPA Lote_2024.jpg";
+import dpaHistorico2025Segundo from "../assets/2°RelatorioIgualdadeSalarial DPA Lote_2025.jpg";
 import bgTransparencia from "../assets/img_1.jpg";
 
 export default function TransparenciaPage() {
+  const [historicoAberto, setHistoricoAberto] = useState(null);
+  const [imagemExpandida, setImagemExpandida] = useState(null);
+
+  const historicos = {
+    UPR: [
+      { src: uprHistorico2024, alt: "Relatório UPR 2024 - 1º relatório" },
+      { src: uprHistorico2024Segundo, alt: "Relatório UPR 2024 - 2º relatório" },
+      { src: uprHistorico2025, alt: "Relatório UPR 2025 - 1º relatório" },
+      { src: uprHistorico2025Segundo, alt: "Relatório UPR 2025 - 2º relatório" },
+    ],
+    DPA: [
+      { src: dpaHistorico2024, alt: "Relatório DPA 2024 - 1º relatório" },
+      { src: dpaHistorico2024Segundo, alt: "Relatório DPA 2024 - 2º relatório" },
+      { src: dpaHistorico2025, alt: "Relatório DPA 2025 - 1º relatório" },
+      { src: dpaHistorico2025Segundo, alt: "Relatório DPA 2025 - 2º relatório" },
+    ],
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setImagemExpandida(null);
+        setHistoricoAberto(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative">
       {/* Background com overlay sofisticado - MUDADO PARA ABSOLUTE */}
@@ -138,9 +182,19 @@ export default function TransparenciaPage() {
                     Documento Oficial
                   </span>
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
-                  Relatório de Transparência Salarial UPR
-                </h2>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                    Relatório de Transparência Salarial UPR
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setHistoricoAberto("UPR")}
+                    className="inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/25"
+                  >
+                    <HiClock className="h-5 w-5" />
+                    Visualizar Histórico de Relatórios
+                  </button>
+                </div>
                 <p className="text-white/90 mt-4 text-lg">
                   Conforme Lei nº 14.611/2023 - Transparência Salarial e
                   Critérios Remuneratórios
@@ -153,8 +207,14 @@ export default function TransparenciaPage() {
                   <img
                     src={imgSalarial}
                     alt="Relatório de Transparência Salarial UPR"
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto cursor-zoom-in object-contain"
                     loading="lazy"
+                    onClick={() =>
+                      setImagemExpandida({
+                        src: imgSalarial,
+                        alt: "Relatório de Transparência Salarial UPR",
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -181,9 +241,19 @@ export default function TransparenciaPage() {
                     Documento Oficial
                   </span>
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
-                  Relatório de Transparência Salarial DPA
-                </h2>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                    Relatório de Transparência Salarial DPA
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setHistoricoAberto("DPA")}
+                    className="inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/25"
+                  >
+                    <HiClock className="h-5 w-5" />
+                    Visualizar Histórico de Relatórios
+                  </button>
+                </div>
                 <p className="text-white/90 mt-4 text-lg">
                   Conforme Lei nº 14.611/2023 - Transparência Salarial e
                   Critérios Remuneratórios
@@ -196,8 +266,14 @@ export default function TransparenciaPage() {
                   <img
                     src={imgSalarial2}
                     alt="Relatório de Transparência Salarial DPA"
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto cursor-zoom-in object-contain"
                     loading="lazy"
+                    onClick={() =>
+                      setImagemExpandida({
+                        src: imgSalarial2,
+                        alt: "Relatório de Transparência Salarial DPA",
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -373,6 +449,80 @@ export default function TransparenciaPage() {
           </motion.section>
         </div>
       </div>
+
+      {historicoAberto && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setHistoricoAberto(null)}
+        >
+          <div
+            className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl dark:bg-gray-800 lg:p-8"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-usina-primary">
+                  Relatórios anteriores
+                </p>
+                <h2 className="mt-2 text-2xl font-bold text-gray-900 dark:text-white lg:text-3xl">
+                  Histórico de Relatórios {historicoAberto}
+                </h2>
+              </div>
+              <button
+                type="button"
+                aria-label="Fechar histórico"
+                onClick={() => setHistoricoAberto(null)}
+                className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+              >
+                <HiXMark className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {historicos[historicoAberto].map((imagem) => (
+                <button
+                  type="button"
+                  key={imagem.src}
+                  onClick={() => setImagemExpandida(imagem)}
+                  className="group overflow-hidden rounded-xl border border-gray-200 bg-gray-50 text-left shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-900"
+                >
+                  <img
+                    src={imagem.src}
+                    alt={imagem.alt}
+                    className="h-auto w-full cursor-zoom-in object-contain"
+                    loading="lazy"
+                  />
+                  <span className="block p-4 text-sm font-semibold text-gray-700 group-hover:text-usina-primary dark:text-gray-300">
+                    {imagem.alt}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {imagemExpandida && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 p-4"
+          onClick={() => setImagemExpandida(null)}
+        >
+          <button
+            type="button"
+            aria-label="Fechar imagem ampliada"
+            onClick={() => setImagemExpandida(null)}
+            className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+          >
+            <HiXMark className="h-7 w-7" />
+          </button>
+          <img
+            src={imagemExpandida.src}
+            alt={imagemExpandida.alt}
+            className="max-h-full max-w-full object-contain"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
