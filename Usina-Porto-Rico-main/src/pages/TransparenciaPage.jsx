@@ -7,8 +7,10 @@ import {
   HiUserGroup,
   HiXMark,
 } from "react-icons/hi2";
-import imgSalarial from "../assets/1° RelatorioIgualdadeSalarial UPR Lote_2026.jpg";
-import imgSalarial2 from "../assets/1°RelatorioIgualdadeSalarial DPA Lote_2026.jpg";
+import imgSalarial from "../assets/2°Relatorio Igualdade Salarial UPR Lote_2026.jpg";
+import imgSalarial2 from "../assets/2° RelatorioIgualdadeSalarial DPA Lote_2026.jpg";
+import uprHistorico2026 from "../assets/1° RelatorioIgualdadeSalarial UPR Lote_2026.jpg";
+import dpaHistorico2026 from "../assets/1°RelatorioIgualdadeSalarial DPA Lote_2026.jpg";
 import uprHistorico2024 from "../assets/1°RelatorioIgualdadeSalarial UPR Lote_2024.jpg";
 import uprHistorico2025 from "../assets/1°RelatorioIgualdadeSalarial UPR Lote_2025.jpg";
 import uprHistorico2024Segundo from "../assets/2°RelatorioIgualdadeSalarial UPR Lote_2024.jpg";
@@ -29,12 +31,14 @@ export default function TransparenciaPage() {
       { src: uprHistorico2024Segundo, alt: "Relatório UPR 2024 - 2º relatório" },
       { src: uprHistorico2025, alt: "Relatório UPR 2025 - 1º relatório" },
       { src: uprHistorico2025Segundo, alt: "Relatório UPR 2025 - 2º relatório" },
+      { src: uprHistorico2026, alt: "Relatório UPR 2026 - 1º relatório" },
     ],
     DPA: [
       { src: dpaHistorico2024, alt: "Relatório DPA 2024 - 1º relatório" },
       { src: dpaHistorico2024Segundo, alt: "Relatório DPA 2024 - 2º relatório" },
       { src: dpaHistorico2025, alt: "Relatório DPA 2025 - 1º relatório" },
       { src: dpaHistorico2025Segundo, alt: "Relatório DPA 2025 - 2º relatório" },
+      { src: dpaHistorico2026, alt: "Relatório DPA 2026 - 1º relatório" },
     ],
   };
 
