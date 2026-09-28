@@ -54,6 +54,31 @@ export default function TransparenciaPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    const pageUrl = `${window.location.origin}${window.location.pathname.replace(/\/+$/, "")}`;
+    const metadata = [
+      { element: document.querySelector('link[rel="canonical"]'), attribute: "href" },
+      { element: document.querySelector('meta[property="og:url"]'), attribute: "content" },
+      { element: document.querySelector('meta[name="twitter:url"]'), attribute: "content" },
+    ].filter(({ element }) => element);
+    const previousValues = metadata.map(({ element, attribute }) =>
+      element.getAttribute(attribute)
+    );
+
+    metadata.forEach(({ element, attribute }) => element.setAttribute(attribute, pageUrl));
+
+    return () => {
+      metadata.forEach(({ element, attribute }, index) => {
+        const previousValue = previousValues[index];
+        if (previousValue === null) {
+          element.removeAttribute(attribute);
+        } else {
+          element.setAttribute(attribute, previousValue);
+        }
+      });
+    };
+  }, []);
+
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative">
       {/* Background com overlay sofisticado - MUDADO PARA ABSOLUTE */}
