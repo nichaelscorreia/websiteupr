@@ -3,3 +3,8 @@
 
 [functions]
   directory = "nonexistent-folder"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
