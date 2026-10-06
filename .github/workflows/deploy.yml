@@ -32,7 +32,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: cd Usina-Porto-Rico-main && npm ci
+        run: cd Usina-Porto-Rico-main && npm install
 
       - name: Build
         run: cd Usina-Porto-Rico-main && npm run build
