@@ -75,7 +75,9 @@ const router = createBrowserRouter([
       { path: "*", element: <NotFoundPage /> },
     ],
   },
-]); // <-- basename removido aqui
+], {
+  basename: import.meta.env.BASE_URL
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

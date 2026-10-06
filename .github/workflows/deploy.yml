@@ -36,7 +36,7 @@ jobs:
         run: cd Usina-Porto-Rico-main && npm install
 
       - name: Build
-        run: cd Usina-Porto-Rico-main && npm run build
+        run: cd Usina-Porto-Rico-main && npm run build && cp dist/index.html dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
