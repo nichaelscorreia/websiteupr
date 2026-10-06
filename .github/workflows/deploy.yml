@@ -1,3 +1,9 @@
+- name: Install dependencies
+  run: cd Usina-Porto-Rico-main && npm ci
+
+- name: Build
+  run: cd Usina-Porto-Rico-main && npm run build
+
 name: Deploy static content to Pages
 
 on:
